@@ -34,8 +34,7 @@ namespace GUI
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string potVal = serialPort1.ReadLine();
-            this.BeginInvoke(new LineReceivedEvent(LineReceived), potVal);
+            this.BeginInvoke(new LineReceivedEvent(LineReceived), serialPort1.ReadLine());
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -44,9 +43,13 @@ namespace GUI
 
         private delegate void LineReceivedEvent(string line);
 
-        private void LineReceived(string pot)
-        {
+        private void LineReceived(string pot)   {
             label1.Text = pot;
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

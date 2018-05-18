@@ -53,7 +53,7 @@
             // serialPort1
             // 
             this.serialPort1.BaudRate = 14400;
-            this.serialPort1.PortName = "COM3";
+            this.serialPort1.PortName = "COM5";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // button2
@@ -75,11 +75,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bebas Kai", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Lime;
-            this.label1.Location = new System.Drawing.Point(320, 348);
+            this.label1.Location = new System.Drawing.Point(321, 348);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 48);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -89,7 +90,7 @@
             this.label2.ForeColor = System.Drawing.Color.Lime;
             this.label2.Location = new System.Drawing.Point(88, 361);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 32);
+            this.label2.Size = new System.Drawing.Size(227, 34);
             this.label2.TabIndex = 3;
             this.label2.Text = "Potentiometer Value:";
             // 
