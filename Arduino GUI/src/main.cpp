@@ -6,7 +6,7 @@ int ledPin = 9;
 int potPin = A0;
 
 void setup(){
-    Serial.begin(9600);
+    Serial.begin(14400);
     pinMode(ledPin, OUTPUT);
 }
 
