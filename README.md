@@ -1,2 +1,2 @@
 # Robot-GUI
-Graphical user interace for the Iron Plant robotic arm
+Graphical user interface for the Iron Plant robotic arm
