@@ -29,39 +29,54 @@ namespace GUI
             BtnSend.Enabled = false;
         }
 
+        private bool checkSp()      //comprueba si ha conexion serial
+        {
+            if (serialPort1.IsOpen)
+                return true;
+            else
+                return false;
+        }
+
         private void button1_Click(object sender, EventArgs e)  // regar 
         {
+            if(checkSp())
             serialPort1.Write("$0");
         }
 
         private void button2_Click(object sender, EventArgs e)  // sembrar
         {
-            serialPort1.Write("$1");
+            if (checkSp())
+                serialPort1.Write("$1");
         }
 
         private void button3_Click(object sender, EventArgs e)  // arar
         {
-            serialPort1.Write("$2");
+            if (checkSp())
+                serialPort1.Write("$2");
         }
 
         private void button4_Click(object sender, EventArgs e)  // cortar
         {
-            serialPort1.Write("$3");
+            if (checkSp())
+                serialPort1.Write("$3");
         }
 
         private void button5_Click(object sender, EventArgs e)  // demo
         {
-            serialPort1.Write("$4");
+            if (checkSp())
+                serialPort1.Write("$4");
         }
 
         private void button6_Click(object sender, EventArgs e)  // luces
         {
-            serialPort1.Write("$5");
+            if (checkSp())
+                serialPort1.Write("$5");
         }
 
         private void button7_Click(object sender, EventArgs e)  // stop
         {
-            serialPort1.Write("$6");
+            if (checkSp())
+                serialPort1.Write("$6");
         }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -91,10 +106,11 @@ namespace GUI
         {
             try
             {
-
+                
                 serialPort1.DiscardOutBuffer();
                 strBufferOut = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
                 serialPort1.Write(strBufferOut);   // lo envia al serial
+                textBox1.Clear();                   // limpia la pantalla
             }
             catch (Exception ex)
             {
