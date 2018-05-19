@@ -52,7 +52,10 @@ namespace GUI
         private void button3_Click(object sender, EventArgs e)  // arar
         {
             if (checkSp())
+            {
                 serialPort1.Write("$2");
+                LbHerramienta.Text = "Arar";
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)  // cortar
@@ -94,7 +97,7 @@ namespace GUI
 
         private void LineReceived(string pot)
         {
-            label1.Text = pot;
+            posX.Text = pot;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -200,6 +203,21 @@ namespace GUI
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
