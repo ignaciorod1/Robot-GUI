@@ -46,11 +46,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.conectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnPuertoSerial = new System.Windows.Forms.ToolStripMenuItem();
-            this.baudRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.CbCOM = new System.Windows.Forms.ToolStripComboBox();
+            this.baudRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnConectar = new System.Windows.Forms.ToolStripMenuItem();
+            this.CbBaud = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -237,30 +236,9 @@
             this.BtnPuertoSerial.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CbCOM});
             this.BtnPuertoSerial.Name = "BtnPuertoSerial";
-            this.BtnPuertoSerial.Size = new System.Drawing.Size(190, 26);
+            this.BtnPuertoSerial.Size = new System.Drawing.Size(181, 26);
             this.BtnPuertoSerial.Text = "Puerto serial";
             this.BtnPuertoSerial.Click += new System.EventHandler(this.puertoSerialToolStripMenuItem_Click);
-            // 
-            // baudRateToolStripMenuItem
-            // 
-            this.baudRateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
-            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
-            this.baudRateToolStripMenuItem.Text = "Baud Rate";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem2.Text = "9600";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem3.Text = "14400";
             // 
             // CbCOM
             // 
@@ -269,12 +247,30 @@
             this.CbCOM.Text = "COMs";
             this.CbCOM.Click += new System.EventHandler(this.com3ToolStripMenuItem_Click);
             // 
+            // baudRateToolStripMenuItem
+            // 
+            this.baudRateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CbBaud});
+            this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.baudRateToolStripMenuItem.Text = "Baud Rate";
+            // 
             // BtnConectar
             // 
             this.BtnConectar.Name = "BtnConectar";
-            this.BtnConectar.Size = new System.Drawing.Size(190, 26);
-            this.BtnConectar.Text = "Iniciar Conexion";
+            this.BtnConectar.Size = new System.Drawing.Size(181, 26);
+            this.BtnConectar.Text = "Iniciar";
             this.BtnConectar.Click += new System.EventHandler(this.iniciarConexiónToolStripMenuItem_Click);
+            // 
+            // CbBaud
+            // 
+            this.CbBaud.Items.AddRange(new object[] {
+            "9600",
+            "14400"});
+            this.CbBaud.Name = "CbBaud";
+            this.CbBaud.Size = new System.Drawing.Size(181, 28);
+            this.CbBaud.Text = "9600";
+            this.CbBaud.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // Form1
             // 
@@ -327,10 +323,9 @@
         private System.Windows.Forms.ToolStripMenuItem conectarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BtnPuertoSerial;
         private System.Windows.Forms.ToolStripMenuItem baudRateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripComboBox CbCOM;
         private System.Windows.Forms.ToolStripMenuItem BtnConectar;
+        private System.Windows.Forms.ToolStripComboBox CbBaud;
     }
 }
 

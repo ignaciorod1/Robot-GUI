@@ -66,7 +66,7 @@ namespace GUI
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string Data = serialPort1.ReadExisting();
+            string Data = serialPort1.ReadLine();
             this.BeginInvoke(new LineReceivedEvent(LineReceived), Data);
         }
 
@@ -146,9 +146,9 @@ namespace GUI
         {
             try
             {
-                if (BtnConectar.Text == "Iniciar conexion") //Al pulsar, cambia el texto del boton a finalizar e inicia eel pueto serie
+                if (BtnConectar.Text == "Iniciar") //Al pulsar, cambia el texto del boton al finalizar e inicia el pueto serie
                 {
-                    serialPort1.BaudRate = Int32.Parse(CbCOM.Text);
+                    serialPort1.BaudRate = Int32.Parse(CbBaud.Text);
                     serialPort1.DataBits = 8;
                     serialPort1.Parity = Parity.None;
                     serialPort1.StopBits = StopBits.One;
@@ -159,7 +159,7 @@ namespace GUI
                     try
                     {
                         serialPort1.Open();
-                        BtnConectar.Text = "Finalizar conexion";
+                        BtnConectar.Text = "Finalizar";
                         BtnSend.Enabled = true;
                     }
 
@@ -169,10 +169,10 @@ namespace GUI
                     }
                 }
 
-                else if (BtnConectar.Text == "Finalizar Conexion")
+                else if (BtnConectar.Text == "Finalizar")
                 {
                     serialPort1.Close();
-                    BtnConectar.Text = "Iniciar conexion";
+                    BtnConectar.Text = "Iniciar";
                     BtnSend.Enabled = false;
                 }
             }
@@ -181,6 +181,11 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
