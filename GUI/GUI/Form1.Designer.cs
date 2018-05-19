@@ -41,8 +41,16 @@
             this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.BtnSend = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.conectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnPuertoSerial = new System.Windows.Forms.ToolStripMenuItem();
+            this.CbCOM = new System.Windows.Forms.ToolStripComboBox();
+            this.baudRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnConectar = new System.Windows.Forms.ToolStripMenuItem();
+            this.CbBaud = new System.Windows.Forms.ToolStripComboBox();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -177,17 +185,17 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "User Input";
             // 
-            // button8
+            // BtnSend
             // 
-            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button8.Font = new System.Drawing.Font("Bebas Kai", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(1759, 194);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(94, 60);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Send";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.BtnSend.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnSend.Font = new System.Drawing.Font("Bebas Kai", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSend.Location = new System.Drawing.Point(1759, 194);
+            this.BtnSend.Name = "BtnSend";
+            this.BtnSend.Size = new System.Drawing.Size(94, 60);
+            this.BtnSend.TabIndex = 10;
+            this.BtnSend.Text = "Send";
+            this.BtnSend.UseVisualStyleBackColor = false;
+            this.BtnSend.Click += new System.EventHandler(this.button8_Click);
             // 
             // label3
             // 
@@ -201,7 +209,68 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Potenciometro Test:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
-         
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conectarToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1882, 28);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // conectarToolStripMenuItem
+            // 
+            this.conectarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BtnPuertoSerial,
+            this.baudRateToolStripMenuItem,
+            this.BtnConectar});
+            this.conectarToolStripMenuItem.Name = "conectarToolStripMenuItem";
+            this.conectarToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.conectarToolStripMenuItem.Text = "Conectar";
+            // 
+            // BtnPuertoSerial
+            // 
+            this.BtnPuertoSerial.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CbCOM});
+            this.BtnPuertoSerial.Name = "BtnPuertoSerial";
+            this.BtnPuertoSerial.Size = new System.Drawing.Size(181, 26);
+            this.BtnPuertoSerial.Text = "Puerto serial";
+            this.BtnPuertoSerial.Click += new System.EventHandler(this.puertoSerialToolStripMenuItem_Click);
+            // 
+            // CbCOM
+            // 
+            this.CbCOM.Name = "CbCOM";
+            this.CbCOM.Size = new System.Drawing.Size(181, 28);
+            this.CbCOM.Text = "COMs";
+            this.CbCOM.Click += new System.EventHandler(this.com3ToolStripMenuItem_Click);
+            // 
+            // baudRateToolStripMenuItem
+            // 
+            this.baudRateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CbBaud});
+            this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.baudRateToolStripMenuItem.Text = "Baud Rate";
+            // 
+            // BtnConectar
+            // 
+            this.BtnConectar.Name = "BtnConectar";
+            this.BtnConectar.Size = new System.Drawing.Size(181, 26);
+            this.BtnConectar.Text = "Iniciar";
+            this.BtnConectar.Click += new System.EventHandler(this.iniciarConexiónToolStripMenuItem_Click);
+            // 
+            // CbBaud
+            // 
+            this.CbBaud.Items.AddRange(new object[] {
+            "9600",
+            "14400"});
+            this.CbBaud.Name = "CbBaud";
+            this.CbBaud.Size = new System.Drawing.Size(181, 28);
+            this.CbBaud.Text = "9600";
+            this.CbBaud.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // Form1
             // 
@@ -210,7 +279,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1882, 1033);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.BtnSend);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button7);
@@ -221,11 +290,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Iron Plant";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,9 +317,15 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BtnSend;
         private System.Windows.Forms.Label label3;
-
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem conectarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BtnPuertoSerial;
+        private System.Windows.Forms.ToolStripMenuItem baudRateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox CbCOM;
+        private System.Windows.Forms.ToolStripMenuItem BtnConectar;
+        private System.Windows.Forms.ToolStripComboBox CbBaud;
     }
 }
 
