@@ -14,6 +14,8 @@ namespace GUI
     {
         public string potVal;
         private string inputText;
+        private string strBufferIn;
+        private string strBufferOut;
 
         public Form1()
         {
@@ -24,7 +26,9 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            strBufferIn = "";
+            strBufferOut = "";
+            BtnSend.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)  // regar 
@@ -95,6 +99,81 @@ namespace GUI
         {
             inputText = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
             serialPort1.Write(inputText);   // lo envia al serial
+        }
+
+        private void puertoSerialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] availablePorts = SerialPort.GetPortNames();
+
+            CbCOM.Items.Clear();    //   limpia los puertos  del menu de puertos disponibles
+
+            foreach (string port in availablePorts) //escribe en el menu de serial potrs los puertos disponibles
+            {
+                CbCOM.Items.Add(port);
+            }
+
+            if(CbCOM.Items.Count > 0)
+            {
+                CbCOM.SelectedIndex = 0;
+                BtnSend.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("No hay puertos COM en esta epoca del año");
+                CbCOM.Items.Clear();
+                CbCOM.Text = "";
+                strBufferIn = "";
+                strBufferOut = "";
+                BtnSend.Enabled = false;
+            }
+        }
+
+  
+
+        private void com3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iniciarConexiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BtnConectar.Text == "Iniciar conexion") //Al pulsar, cambia el texto del boton a finalizar e inicia eel pueto serie
+                {
+                    serialPort1.BaudRate = Int32.Parse(CbCOM.Text);
+                    serialPort1.DataBits = 8;
+                    serialPort1.Parity = Parity.None;
+                    serialPort1.StopBits = StopBits.One;
+                    serialPort1.Handshake = Handshake.None;
+                    serialPort1.PortName = CbCOM.Text;
+
+
+                    try
+                    {
+                        serialPort1.Open();
+                        BtnConectar.Text = "Finalizar conexion";
+                        BtnSend.Enabled = true;
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                }
+
+                else if (BtnConectar.Text == "Finalizar Conexion")
+                {
+                    serialPort1.Close();
+                    BtnConectar.Text = "Iniciar conexion";
+                    BtnSend.Enabled = false;
+                }
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }
