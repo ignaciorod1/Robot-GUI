@@ -13,15 +13,13 @@ namespace GUI
     public partial class Form1 : Form
     {
         public string potVal;
-        private string inputText;
-        private string strBufferIn;
         private string strBufferOut;
+        private string strBufferIn;
 
         public Form1()
         {
             potVal = "0";                          //inicialización del valor del potenciometro
             InitializeComponent();
-            serialPort1.Open();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -68,8 +66,8 @@ namespace GUI
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string potVal = serialPort1.ReadLine();
-            this.BeginInvoke(new LineReceivedEvent(LineReceived), potVal);
+            string Data = serialPort1.ReadExisting();
+            this.BeginInvoke(new LineReceivedEvent(LineReceived), Data);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -91,14 +89,23 @@ namespace GUI
 
         private void button8_Click(object sender, EventArgs e)
         {
-            inputText = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
-            serialPort1.Write(inputText);   // lo envia al serial
+            try
+            {
+
+                serialPort1.DiscardOutBuffer();
+                strBufferOut = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
+                serialPort1.Write(strBufferOut);   // lo envia al serial
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)   // puertos COM
         {
-            inputText = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
-            serialPort1.Write(inputText);   // lo envia al serial
+            strBufferOut = textBox1.Text;    // guarda en la variable de texto de entrada lo escrito en el panel
+            serialPort1.Write(strBufferOut);   // lo envia al serial
         }
 
         private void puertoSerialToolStripMenuItem_Click(object sender, EventArgs e)
