@@ -1,7 +1,9 @@
 #include <Arduino.h>
 
 int data;
+int val;
 int ledPin = 9;
+int potPin = A0;
 
 void setup(){
     Serial.begin(9600);
@@ -9,6 +11,8 @@ void setup(){
 }
 
 void loop() {
+  val = analogRead(potPin);
+  val = map(val, 0, 1023, 0, 100);
   if(Serial.available())  {
     data = Serial.read();
     if (data == 'A')
@@ -16,4 +20,6 @@ void loop() {
     else
       digitalWrite(ledPin, LOW);
   }
+  Serial.println(val);
+
 }
